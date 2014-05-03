@@ -1,0 +1,71 @@
+'use strict';
+var util = require('util');
+var path = require('path');
+var yeoman = require('yeoman-generator');
+var chalk = require('chalk');
+
+
+var PandoraGenerator = yeoman.generators.Base.extend({
+  init: function () {
+    this.pkg = require('../package.json');
+
+    this.on('end', function () {
+      if (!this.options['skip-install']) {
+        this.installDependencies();
+      }
+    });
+  },
+
+  askFor: function () {
+    var done = this.async();
+
+    // have Yeoman greet the user
+    this.log(this.yeoman);
+
+    // replace it with a short and sweet description of your generator
+    this.log(chalk.magenta('don\'t forget to run spm install after generator is done!'));
+
+    var prompts = [{
+      name: 'name',
+      message: 'What is the name of your project?',
+      default: this.appname
+    }, {
+      name: 'description',
+      message: 'Your project description',
+      default: ''
+    }];
+
+    this.prompt(prompts, function (props) {
+      this.name = props.name;
+      this.description = props.description;
+
+      done();
+    }.bind(this));
+  },
+
+  app: function () {
+    this.mkdir('src');
+    this.mkdir('test');
+    this.mkdir('sea-modules');
+    this.mkdir('node_modules');
+
+    this.directory('vendor', 'vendor');
+
+    this.template('_package.json', 'package.json');
+    this.template('readme.md', 'readme.md');
+    this.template('Gruntfile.js', 'Gruntfile.js');
+
+    this.template('package.js', 'src/' + this.name + '.js');
+
+    this.template('test.html', 'test/' + this.name + '.html');
+  },
+
+  projectfiles: function () {
+    this.copy('editorconfig', '.editorconfig');
+    this.copy('jshintrc', '.jshintrc');
+    this.copy('travis.yml', '.travis.yml');
+    this.copy('LICENSE-MIT', 'LICENSE-MIT');
+  }
+});
+
+module.exports = PandoraGenerator;
