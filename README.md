@@ -1,4 +1,4 @@
-# generator-pandora [![Build Status](https://secure.travis-ci.org/crossjs/generator-pandora.png?branch=master)](https://travis-ci.org/crossjs/generator-pandora)
+# generator-pandora [![Build Status](https://secure.travis-ci.org/pandorajs/generator-pandora.png?branch=master)](https://travis-ci.org/pandorajs/generator-pandora)
 
 > [Yeoman](http://yeoman.io) generator
 
