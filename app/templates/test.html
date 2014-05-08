@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>widget</title>
+<title><%= name %></title>
 <link rel="stylesheet" href="../vendor/qunit/qunit.css">
 </head>
 <body>
@@ -25,18 +25,18 @@
       ],
       'alias': {
         '$': 'jquery',
-        'widget': 'pandora/widget/1.0.0/widget'
+        '<%= _.slugify(extendedby) %>': 'pandora/<%= _.slugify(extendedby) %>/1.0.0/<%= _.slugify(extendedby) %>'
       }
     });
 
-    seajs.use(['../src/<%= name %>'], function (Widget) {
+    seajs.use(['../src/<%= _.slugify(name) %>'], function (<%= name %>) {
 
       'use strict';
 
       QUnit.start();
 
-      test('fake', function() {
-        ok( 1, '' );
+      test('typeof', function() {
+        ok( typeof <%= name %> === 'function', '' );
       });
 
     });

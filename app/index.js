@@ -33,11 +33,22 @@ var PandoraGenerator = yeoman.generators.Base.extend({
       name: 'description',
       message: 'Your project description',
       default: ''
+    }, {
+      name: 'extendedby',
+      message: 'Base class that extended by',
+      default: 'widget'
     }];
 
+    function ucfirst (str) {
+      return str.replace(/\w/, function ($0) {
+        return $0.toUpperCase();
+      });
+    }
+
     this.prompt(prompts, function (props) {
-      this.name = props.name;
+      this.name = ucfirst(props.name);
       this.description = props.description;
+      this.extendedby = ucfirst(props.extendedby);
 
       done();
     }.bind(this));
@@ -55,9 +66,8 @@ var PandoraGenerator = yeoman.generators.Base.extend({
     this.template('readme.md', 'readme.md');
     this.template('Gruntfile.js', 'Gruntfile.js');
 
-    this.template('package.js', 'src/' + this.name + '.js');
-
-    this.template('test.html', 'test/' + this.name + '.html');
+    this.template('src.js', 'src/' + this.name.toLowerCase() + '.js');
+    this.template('test.html', 'test/' + this.name.toLowerCase() + '.html');
   },
 
   projectfiles: function () {

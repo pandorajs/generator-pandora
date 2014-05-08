@@ -3,9 +3,9 @@ define(function (require, exports, module) {
 'use strict';
 
 var $ = require('$'), // if $ is never used in this file, please remove it!!!
-  Widget = require('widget');
+  <%= extendedby %> = require('<%= _.slugify(extendedby) %>');
 
-module.exports = Widget.extend({
+var <%= name %> = <%= extendedby %>.extend({
 
   defaults: {
 
@@ -16,5 +16,7 @@ module.exports = Widget.extend({
   }
 
 });
+
+module.exports = <%= name %>;
 
 });
