@@ -1,22 +1,22 @@
-define(function (require, exports, module) {
+define(function(require, exports, module) {
 
-'use strict';
+  'use strict';
 
-var $ = require('$'), // if $ is never used in this file, please remove it!!!
-  <%= extendedby %> = require('<%= _.slugify(extendedby) %>');
+  var $ = require('$'), // if $ is never used in this file, please remove it!!!
+    <%= extendedby %> = require('<%= _.slugify(extendedby) %>');
 
-var <%= name %> = <%= extendedby %>.extend({
+  var <%= name %> = <%= extendedby %> .extend({
 
-  defaults: {
+    defaults: {
 
-  },
+    },
 
-  setup: function () {
+    setup: function() {
 
-  }
+    }
 
-});
+  });
 
-module.exports = <%= name %>;
+  module.exports = <%= name %> ;
 
 });
