@@ -73,6 +73,7 @@ var PandoraGenerator = yeoman.generators.Base.extend({
   projectfiles: function () {
     this.copy('editorconfig', '.editorconfig');
     this.copy('jshintrc', '.jshintrc');
+    this.copy('gitignore', '.gitignore');
     this.copy('travis.yml', '.travis.yml');
     this.copy('LICENSE-MIT', 'LICENSE-MIT');
   }

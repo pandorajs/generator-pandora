@@ -2,10 +2,9 @@ define(function(require, exports, module) {
 
   'use strict';
 
-  var $ = require('$'), // if $ is never used in this file, please remove it!!!
-    <%= extendedby %> = require('<%= _.slugify(extendedby) %>');
+  var <%= extendedby %> = require('<%= _.slugify(extendedby) %>');
 
-  var <%= name %> = <%= extendedby %> .extend({
+  var <%= name %> = <%= extendedby %>.extend({
 
     defaults: {
 
@@ -17,6 +16,6 @@ define(function(require, exports, module) {
 
   });
 
-  module.exports = <%= name %> ;
+  module.exports = <%= name %>;
 
 });

@@ -1,5 +1,5 @@
 /*
- * <%= name %>
+ * <%= _.slugify(name) %>
  * https://github.com/pandorajs/<%= _.slugify(name) %>
  *
  * Copyright (c) 2014 pandorajs
@@ -116,11 +116,11 @@ module.exports = function(grunt) {
         idleading: '<%%= idleading %>',
         alias: '<%%= pkg.spm.alias %>'
       },
-      dist: {
+      src: {
         files: [{
           expand: true,
           cwd: 'src/',
-          src: ['*.js'],
+          src: ['*.js', '*.handlebars', '*.css'],
           dest: '.build/'
         }]
       }
@@ -135,7 +135,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: '.build/',
-          src: ['package*.js'],
+          src: ['<%= _.slugify(name) %>*.js', '!-debug*.js'],
           dest: 'dist/'
         }]
       }
