@@ -63,7 +63,7 @@ var PandoraGenerator = yeoman.generators.Base.extend({
     this.directory('vendor', 'vendor');
 
     this.template('_package.json', 'package.json');
-    this.template('readme.md', 'readme.md');
+    this.template('README.md', 'README.md');
     this.template('Gruntfile.js', 'Gruntfile.js');
 
     this.template('src.js', 'src/' + this.name.toLowerCase() + '.js');
