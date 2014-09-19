@@ -1,6 +1,6 @@
 {
   "name": "generator-pandora",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Yeoman generator for pandorajs",
   "license": "MIT",
   "main": "app/index.js",
@@ -22,6 +22,8 @@
     "app"
   ],
   "keywords": [
+    "pandora",
+    "pandorajs",
     "yeoman-generator"
   ],
   "dependencies": {

@@ -1,8 +1,8 @@
 {
-  "name": "<%= name %>",
+  "name": "<%= _.slugify(name) %>",
   "version": "1.0.0",
   "description": "<%= description %>",
-  "keywords": [ "<%= description %>", "seajs", "modules" ],
+  "keywords": [ "<%= _.slugify(name) %>", "pandora", "widget", "seajs" ],
   "homepage": "https://github.com/pandorajs/<%= _.slugify(name) %>",
   "bugs": {
     "url": "https://github.com/pandorajs/<%= _.slugify(name) %>/issues"
@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "grunt": "*",
-    "grunt-cmd-transport": "*",
+    "grunt-cmd-transport": "crossjs/grunt-cmd-transport",
     "grunt-cmd-concat": "*",
     "grunt-contrib-clean": "*",
     "grunt-contrib-copy": "*",
@@ -47,8 +47,7 @@
   "spm": {
     "output": [ "<%= _.slugify(name) %>.js" ],
     "alias": {
-      "$": "$",
-      "widget": "pandora/widget/1.0.0/widget"
+      "<%= _.slugify(extendedby) %>": "pandora/<%= _.slugify(extendedby) %>/1.0.0/<%= _.slugify(extendedby) %>"
     }
   }
 }

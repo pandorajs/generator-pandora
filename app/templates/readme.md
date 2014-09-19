@@ -1,4 +1,4 @@
-#package
+#<%= _.slugify(name) %>
 
 [![Build Status](https://api.travis-ci.org/pandorajs/<%= _.slugify(name) %>.png?branch=master)](http://travis-ci.org/pandorajs/<%= _.slugify(name) %>)
 [![Coverage Status](https://coveralls.io/repos/pandorajs/<%= _.slugify(name) %>/badge.png?branch=master)](https://coveralls.io/r/pandorajs/<%= _.slugify(name) %>?branch=master)
