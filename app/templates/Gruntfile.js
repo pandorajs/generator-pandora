@@ -116,7 +116,7 @@ module.exports = function(grunt) {
         idleading: '<%%= idleading %>',
         alias: '<%%= pkg.spm.alias %>'
       },
-      dist: {
+      all: {
         files: [{
           expand: true,
           cwd: 'src/',
@@ -131,7 +131,7 @@ module.exports = function(grunt) {
         debug: true,
         include: 'relative'
       },
-      src: {
+      all: {
         files: [{
           expand: true,
           cwd: '.build/',
@@ -155,7 +155,7 @@ module.exports = function(grunt) {
           'dead_code': true
         }
       },
-      dist: {
+      all: {
         files: [{
           expand: true,
           cwd: 'dist/',
