@@ -17,13 +17,9 @@
     "name": "pandorajs",
     "url": "https://github.com/pandorajs"
   },
-  "main": "Gruntfile.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/pandorajs/<%= _.slugify(name) %>.git"
-  },
-  "scripts": {
-    "test": "grunt qunit"
   },
   "engines": {
     "node": ">= 0.8.0"
@@ -31,23 +27,24 @@
   "dependencies": {
   },
   "devDependencies": {
-    "grunt": "*",
-    "grunt-cmd-transport": "crossjs/grunt-cmd-transport",
-    "grunt-cmd-concat": "*",
-    "grunt-contrib-clean": "*",
-    "grunt-contrib-copy": "*",
-    "grunt-contrib-jshint": "*",
-    "grunt-contrib-uglify": "*",
-    "grunt-contrib-yuidoc": "*",
-    "grunt-coveralls": "*",
-    "grunt-qunit-istanbul": "*",
-    "matchdep": "*"
+    "gulp": "*",
+    "gulp-wrap": "^0.11.0",
+    "gulp-jshint": "^1.9.2",
+    "colorful": "^2.1.0",
+    "map-stream": "0.0.5"
   },
-  "family": "pandora",
   "spm": {
-    "output": [ "<%= _.slugify(name) %>.js" ],
-    "alias": {
-      "<%= _.slugify(extendedby) %>": "pandora/<%= _.slugify(extendedby) %>/1.0.0/<%= _.slugify(extendedby) %>"
+    "main": "index.js",
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    },
+    "scripts": {
+      "prebuild": "gulp prebuild",
+      "postbuild": "gulp postbuild"
     }
+  },
+  "scripts": {
+    "test": "spm test",
+    "build": "spm build"
   }
 }

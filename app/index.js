@@ -10,9 +10,7 @@ var PandoraGenerator = yeoman.generators.Base.extend({
     this.pkg = require('../package.json');
 
     this.on('end', function () {
-      if (!this.options['skip-install']) {
-        this.installDependencies();
-      }
+      console.log(chalk.magenta('please run spm install and npm install!'));
     });
   },
 
@@ -34,9 +32,9 @@ var PandoraGenerator = yeoman.generators.Base.extend({
       message: 'Your project description',
       default: ''
     }, {
-      name: 'extendedby',
+      name: 'extendName',
       message: 'Base class that extended by',
-      default: 'widget'
+      default: 'pandora-widget'
     }];
 
     function ucfirst (str) {
@@ -45,29 +43,32 @@ var PandoraGenerator = yeoman.generators.Base.extend({
       });
     }
 
-    this.prompt(prompts, function (props) {
-      this.name = ucfirst(props.name);
-      this.description = props.description;
-      this.extendedby = ucfirst(props.extendedby);
+    function getClassName(str) {
+      return ucfirst(str.replace('pandora-', ''));
+    }
 
+    this.prompt(prompts, function (props) {
+      this.name = props.name;
+      this.version = props.version;
+      this.varName = getClassName(props.name);
+      this.description = props.description;
+      this.extendName = props.extendName;
+      this.extendClassName = getClassName(props.extendName);
+      this.contents = '<%= contents %>';
       done();
     }.bind(this));
   },
 
   app: function () {
-    this.mkdir('src');
-    this.mkdir('test');
-    this.mkdir('sea-modules');
-    this.mkdir('node_modules');
-
-    this.directory('vendor', 'vendor');
+    this.directory('examples', 'examples');
+    this.directory('tests', 'tests');
 
     this.template('_package.json', 'package.json');
     this.template('README.md', 'README.md');
-    this.template('Gruntfile.js', 'Gruntfile.js');
+    this.template('HISTORY.md', 'HISTORY.md');
+    this.template('Gulpfile.js', 'Gulpfile.js');
 
-    this.template('src.js', 'src/' + this.name.toLowerCase() + '.js');
-    this.template('test.html', 'test/' + this.name.toLowerCase() + '.html');
+    this.template('index.js', 'index.js');
   },
 
   projectfiles: function () {
