@@ -17,6 +17,9 @@
     "name": "pandorajs",
     "url": "https://github.com/pandorajs"
   },
+  "owners": [
+    {"name": "pandorajs"}
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/pandorajs/<%= _.slugify(name) %>.git"
@@ -36,7 +39,8 @@
   "spm": {
     "main": "index.js",
     "devDependencies": {
-      "expect.js": "0.3.1"
+      "expect.js": "0.3.1",
+      "sinon": "1.6.0"
     },
     "scripts": {
       "prebuild": "gulp prebuild",
