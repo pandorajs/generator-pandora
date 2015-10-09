@@ -7,3 +7,5 @@ dist
 .travis.yml
 LICENSE-MIT
 node_modules
+tests
+test

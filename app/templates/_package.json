@@ -38,10 +38,20 @@
   },
   "spm": {
     "main": "index.js",
+    "dependencies": {
+      "jquery": "1.11.1",
+      "pandora-widget": "1.1.0"
+    },
     "devDependencies": {
       "expect.js": "0.3.1",
       "sinon": "1.6.0"
     },
+    "tests": "tests/*-spec.js",
+    "ignore": [
+      "dist",
+      "_site"
+    ],
+    "buildArgs": "--ignore jquery",
     "scripts": {
       "prebuild": "gulp prebuild",
       "postbuild": "gulp postbuild"

@@ -1,6 +1,6 @@
 /*
- * <%= _.slugify(name) %>
- * https://github.com/pandorajs/<%= _.slugify(name) %>
+ * pandora-alert
+ * https://github.com/pandorajs/pandora-alert
  *
  * Copyright (c) 2014 pandorajs
  * Licensed under the MIT license.
@@ -37,7 +37,7 @@ gulp.task('jshint', function() {
 });
 
 gulp.task('wrap', function() {
-  var comments = '/* ' + new Date() + ' */\r\n';
+  var comments = '/* ' + new Date().toString().replace(/\([\u4E00-\u9FFF]+\)/, '') + ' */\r\n';
   return gulp.src('./dist/**/*.js')
     .pipe(wrap( comments + '<%= contents %>'))
     .pipe(gulp.dest('./dist'));
